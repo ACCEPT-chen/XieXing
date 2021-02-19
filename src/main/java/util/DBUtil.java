@@ -34,7 +34,7 @@ public class DBUtil {
     //实例化数据库连接conn
     public Connection getConnection() {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xiexing?useSSL=false&serverTimezone=UTC", "root", "Czy317317");
+            conn = DriverManager.getConnection("jdbc:mysql://47.96.153.145:3306/school?useSSL=false&serverTimezone=UTC", "root", "root");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
