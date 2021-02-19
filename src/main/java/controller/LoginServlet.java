@@ -63,8 +63,8 @@ public class LoginServlet extends HttpServlet {
               String name=su.getRequest().getParameter("username");
               String password=su.getRequest().getParameter("password");
               String typeuse=su.getRequest().getParameter("usertype");
-              //System.out.println(req.getRealPath("/photos"));
-              String photosPath = getServletContext().getRealPath("/photos");
+             // System.out.println(req.getRealPath("/photos"));
+              String photosPath = req.getRealPath("/photos");
              // String Path="/photos";
               File file =su.getFiles().getFile(0);
               String photoName = new StringBuilder(new String(email).hashCode()).append(System.currentTimeMillis()).toString();
