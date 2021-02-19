@@ -247,7 +247,7 @@
                             <input type="radio" name="usertype" value="donor" checked>
                             <span style="color: white;font:18px bolder;" >捐赠者</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="usertype" value="doner">
+                            <input type="radio" name="usertype" value="donee">
                             <span style="color: white;font:18px bold;">受捐者</span>
 
                         </div>

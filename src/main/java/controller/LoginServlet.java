@@ -64,10 +64,9 @@ public class LoginServlet extends HttpServlet {
               String password=su.getRequest().getParameter("password");
               String typeuse=su.getRequest().getParameter("usertype");
              // System.out.println(req.getRealPath("/photos"));
-              String photosPath = req.getRealPath("/photos");
-             // String Path="/photos";
+              String photosPath = req.getServletContext().getRealPath("/photos");
               File file =su.getFiles().getFile(0);
-              String photoName = new StringBuilder(new String(email).hashCode()).append(System.currentTimeMillis()).toString();
+              String photoName = new StringBuilder(new String(name).hashCode()).append(System.currentTimeMillis()).toString();
               try {
                   file.saveAs(photosPath+"\\"+photoName+".jpg");
               } catch (SmartUploadException e) {
