@@ -206,7 +206,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-white px-5 py-2" value="题 交">
+                            <input type="submit" class="btn btn-white px-5 py-2" value="提 交">
                         </div>
 
                     </form>
