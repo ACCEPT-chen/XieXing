@@ -1,3 +1,50 @@
+.main-section {
+  padding: 4em 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#donationlist {
+  width: 100%;
+}
+
+#donationlist li {
+  border-bottom: 2px solid #ffc107;
+  margin-bottom: 20px;
+}
+
+#donationlist li p {
+  color: #0b0b0b;
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+#donationlist li div {
+  font-size: 16px;
+  color: #1e1e1e;
+}
+
+#donationlist .show_item {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  max-width: 40%;
+  float: left;
+  margin: 0 50px 0 0;
+}
+
+#donationlist .show_info {
+  font-size: 16px;
+  float: left;
+}
+#donationlist .show_info a{
+  font-size: 20px;
+  font-weight: bolder;
+}
+#donationlist .show_info span{
+  font-size: 16px;
+}
 body {
   font-family: "Overpass", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: #fff;

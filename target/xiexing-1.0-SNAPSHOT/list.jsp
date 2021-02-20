@@ -38,12 +38,28 @@
             margin: 0 auto;
         }
 
-        .tool {
-            height: 80px;
+        #donationlist {
             width: 100%;
         }
 
-        .show_item {
+        #donationlist li {
+            border-bottom: 2px solid #ffc107;
+            margin-bottom: 20px;
+        }
+
+        #donationlist li p {
+            color: #0b0b0b;
+            font-size: 20px;
+            font-weight: bolder;
+            margin: 0;
+        }
+
+        #donationlist li div {
+            font-size: 16px;
+            color: #1e1e1e;
+        }
+
+        #donationlist .show_item {
             -webkit-box-flex: 0;
             -ms-flex: 0 0 40%;
             flex: 0 0 40%;
@@ -52,12 +68,22 @@
             margin: 0 50px 0 0;
         }
 
-        .item_info {
-
+        #donationlist .show_info {
+            font-size: 16px;
+            float: left;
+        }
+        #donationlist .show_info a{
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        #donationlist .show_info span{
+            font-size: 16px;
         }
     </style>
+
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container"><a class="navbar-brand" href="index.html">携&nbsp; 行</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -71,7 +97,7 @@
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">捐 赠</a></li>
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">购 物</a></li>
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">沟 通</a></li>
-                <li class="nav-item"><a href="donate_info.jsp" class="nav-link">登录 / 注册</a></li>
+                <li class="nav-item"><a href="list.jsp" class="nav-link">${username}</a></li>
             </ul>
         </div>
     </div>
@@ -95,29 +121,24 @@
 <div class="main-section">
     <div class="container">
         <div class="row">
-            <div class="tool">
-                <p style="font: 26px bolder;margin-right: 300px">我的捐赠列表</p>
-                <input type="button" class="button" value="添加" style="margin-right: 50px">
-                <input type="button" value="已捐出">
-            </div>
-            <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#ffc107 SIZE=3>
-            <ul>
-                <c:forEach items="${list}" var="donate">
-                    <li>
-                        <p>${donate.update_time}</p>
+            <ul id="donationlist">
+                <c:forEach items="${requestScope.donationList}" var="donation">
+                    <li class="clearfix">
+                        <p>鞋 昵称： <strong>${donation.name}</strong></p>
                         <div class="show_item">
-                            <a href="images/img_1.jpg" class="img-hover" data-fancybox="gallery">
+                            <a class="img-hover" href=${donation.photo} >
                                 <span class="icon icon-search"></span>
-                                <img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid">
+                                <img  class="img-fluid" src=${donation.photo}>
                             </a>
                         </div>
-                        <div class="item_info">
-                            <span>${donate.shoes_catalog}</span> - <span>${donate.shoes_season}<br>
-                            <span>${donate.shoes_sex}</span> - <span>${donate.shoes_newdegree}<br>
-                        </div>
-                        <div>
-                            <input type="button" value="修改"></input>
-                            <input type="button" value="查看"></input>
+
+                        <div class="item_cond">
+                            <c:if test="${donation.cond==1}"><a href="contact.jsp">已捐出，查看详情</a></c:if>
+                            <c:if test="${donation.cond==0}"><span>未捐出</span></c:if>
+                            </div><div class="item_info">
+                            <br>
+                            <span>尺码： ${donation.size}</span> - <span>类型： ${donation.type}</span> -
+                            <span>${donation.sex}</span>
                         </div>
                     </li>
                 </c:forEach>
@@ -126,7 +147,6 @@
         </div>
     </div>
 </div>
-
 
 
 <footer class="footer">

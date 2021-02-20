@@ -44,12 +44,7 @@
                     <c:if test="${username==null}"><a href="login.jsp" class="nav-link">登录/注册</a></c:if>
 <%--                    <c:if test="${username!=null}"><a href="/listServlet" class="nav-link">${username}</a></c:if>--%>
 <%--                    <c:if test="${username!=null}"><a href="list.jsp" class="nav-link">${username}</a></c:if>--%>
-                    <c:if test="${username!=null}"><a href="listServlet" class="nav-link">${username}</a>
-                    <div sytle="postion:absolute;top:-999999px;left:9999999999px">
-                        <div hidden id="useremail">${useremail}</div>
-                    </form>
-                        </c:if>
-        </div>
+                    <c:if test="${username!=null}"><a href="javascript:jumptoList()" class="nav-link">${username}</a></c:if>
 
                 </li>
             </ul>
@@ -178,9 +173,15 @@
     function jump() {
         window.location.href = "/vvv";
     }
+
+    function jumptoList(){
+        var email=document.getElementById("jumptoList_email").innerText;
+        console.log("111"+email)
+        window.location.href="listServlet?param="+email;
+    }
 </script>
 
-
+<div hidden id="jumptoList_email">${useremail}</div>
 <div class="featured-section overlay-color-2" style="background-image: url(images/ydx1.jpg);">
 
     <div class="container">
@@ -272,6 +273,7 @@
 <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>--%>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
+
 
 
 </body>
