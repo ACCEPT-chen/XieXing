@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="item_cond">
-                            <c:if test="${donation.cond==1}"><a href="contact.jsp">已捐出，查看详情</a></c:if>
+                            <c:if test="${donation.cond==1}"><a href="/contactService?id="+${donation.id}>已捐出，查看详情</a></c:if>
                             <c:if test="${donation.cond==0}"><span>未捐出</span></c:if>
                             </div><div class="item_info">
                             <br>

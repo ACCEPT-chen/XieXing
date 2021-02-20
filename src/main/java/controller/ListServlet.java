@@ -1,7 +1,7 @@
 package controller;
 
 import entity.donation;
-import service.ListService;
+import service.DonationService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -17,14 +17,14 @@ import java.util.List;
 
 @WebServlet("/listServlet")
 public class ListServlet extends HttpServlet {
-    private ListService listService = new ListService();
+    private DonationService donationService = new DonationService();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String email = req.getParameter("param");
-        if (listService.isDonor(email)) {
-            List<donation> donationList = listService.getDonationList(email);
+        if (donationService.isDonor(email)) {
+            List<donation> donationList = donationService.getDonationList(email);
             if (donationList.size() != 0) {
                 req.setAttribute("donationList", donationList);
                 req.getRequestDispatcher("list.jsp").forward(req, resp);

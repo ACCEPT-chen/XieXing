@@ -174,11 +174,6 @@
         window.location.href = "/vvv";
     }
 
-    function jumptoList(){
-        var email=document.getElementById("jumptoList_email").innerText;
-        console.log("111"+email)
-        window.location.href="listServlet?param="+email;
-    }
 </script>
 
 <div hidden id="jumptoList_email">${useremail}</div>
@@ -273,6 +268,7 @@
 <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>--%>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
+<script src="js/other.js"></script>
 
 
 
