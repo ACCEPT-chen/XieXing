@@ -47,7 +47,7 @@
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">首 页</a></li>
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">捐 赠</a></li>
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="javascript:void(0);" class="nav-link">沟 通</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link">沟 通</a></li>
                 <li class="nav-item"><a href="list.jsp" class="nav-link">${username}</a></li>
             </ul>
         </div>

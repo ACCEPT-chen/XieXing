@@ -25,7 +25,6 @@ public class loginDao {
                 donee=new donee(email,password,name,photo);
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }finally {
             DBUtil.getInstance().closeDBResources();

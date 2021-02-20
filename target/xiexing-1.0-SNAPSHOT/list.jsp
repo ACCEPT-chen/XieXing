@@ -47,7 +47,7 @@
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">首 页</a></li>
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">捐 赠</a></li>
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="javascript:void(0);" class="nav-link">沟 通</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link">沟 通</a></li>
                 <li class="nav-item"><a href="list.jsp" class="nav-link">${username}</a></li>
             </ul>
         </div>
@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="item_cond">
-                            <c:if test="${donation.cond==1}"><a href="contact.jsp">已捐出，查看详情</a></c:if>
+                            <c:if test="${donation.cond==1}"><a href="/contactService?id="+${donation.id}>已捐出，查看详情</a></c:if>
                             <c:if test="${donation.cond==0}"><span>未捐出</span></c:if>
                             </div><div class="item_info">
                             <br>
