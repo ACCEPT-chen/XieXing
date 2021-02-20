@@ -33,7 +33,7 @@ $(document).ready(function($) {
 			margin: 10,
 			nav: true,
 			stagePadding: 5,
-			nav: false,
+			// nav: false,
 			navText: ['<span class="ion-md-arrow-back">', '<span class="ion-md-arrow-forward">'],
 			responsive:{
 				0:{
@@ -81,7 +81,7 @@ $(document).ready(function($) {
 			items: 1,
 			autoplay: true,
 			stagePadding: 0,
-			nav: true,
+			// nav: true,
 			navText: ['<span class="ion-md-arrow-back">', '<span class="ion-md-arrow-forward">'],
 			animateOut: 'fadeOut',
     	animateIn: 'fadeIn',
