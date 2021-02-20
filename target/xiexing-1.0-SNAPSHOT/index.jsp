@@ -42,7 +42,15 @@
                 <li class="nav-item"><a href="about.html" class="nav-link">沟 通</a></li>
                 <li class="nav-item">
                     <c:if test="${username==null}"><a href="login.jsp" class="nav-link">登录/注册</a></c:if>
-                    <c:if test="${username!=null}"><a href="list.jsp" class="nav-link">${username}</a></c:if>
+<%--                    <c:if test="${username!=null}"><a href="/listServlet" class="nav-link">${username}</a></c:if>--%>
+<%--                    <c:if test="${username!=null}"><a href="list.jsp" class="nav-link">${username}</a></c:if>--%>
+                    <c:if test="${username!=null}"><a href="listServlet" class="nav-link">${username}</a>
+                    <div sytle="postion:absolute;top:-999999px;left:9999999999px">
+                        <div hidden id="useremail">${useremail}</div>
+                    </form>
+                        </c:if>
+        </div>
+
                 </li>
             </ul>
         </div>
