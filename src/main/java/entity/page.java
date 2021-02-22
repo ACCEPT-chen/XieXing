@@ -7,7 +7,7 @@ public class page {
     private int totalNum;
     private int pageNo;
     private int totalPages;
-    private int pageSize=16;
+    private int pageSize=4;
 
     public int getPageNo() {
         return pageNo;

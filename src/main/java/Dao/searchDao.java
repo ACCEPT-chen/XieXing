@@ -15,7 +15,7 @@ import java.util.Map;
 public class searchDao {
     public List<donation> getDonationByType(String type) {
         List<donation> donationList=new ArrayList<>();
-        String sql = "select * from donation where type=?";
+        String sql = "select * from donation where type=? and cond=0";
         PreparedStatement pstmt = DBUtil.getInstance().getPreparedStatement(sql);
         try {
             pstmt.setString(1, type);
@@ -66,12 +66,13 @@ public class searchDao {
        List<donation> donationList=new ArrayList<>();
         page page=new page();
         int pagesize=page.getPageSize();
-        String sql = "select * from donation where type=? limit?,?";
+        String sql = "select * from donation where type=? and cond=0 limit ?,?";
         PreparedStatement pstmt = DBUtil.getInstance().getPreparedStatement(sql);
         try {
-            Integer last=pageno*pagesize;
-            pstmt.setInt(1, last);
-            pstmt.setInt(2, pagesize);
+            Integer last=(pageno-1)*pagesize;
+            pstmt.setString(1,type);
+            pstmt.setInt(2, last);
+            pstmt.setInt(3, pagesize);
             ResultSet rs = pstmt.executeQuery();
             donation shoe;
             while(rs.next()) {
@@ -126,14 +127,14 @@ public class searchDao {
 
     public String getDonorNameByEmail(String useremail) {
         String username = null;
-        String sql="select username from donator where useremail=?";
+        String sql="select username from donor where email=?";
         PreparedStatement pstmt = DBUtil.getInstance().getPreparedStatement(sql);
         try {
             pstmt.setString(1, useremail);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()) {
                 //TODO:修改为columnLabel
-                username=rs.getString("username");
+                username=rs.getString("name");
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -142,5 +143,22 @@ public class searchDao {
             DBUtil.getInstance().closeDBResources();
         }
         return username;
+    }
+
+    public Integer getSingleTypeNum(String type) {
+        Integer num=0;
+        String sql="select count(*) from donation where type=? and cond=0";
+        PreparedStatement pstmt=DBUtil.getInstance().getPreparedStatement(sql);
+        try {
+            pstmt.setString(1,type);
+            ResultSet rs=pstmt.executeQuery();
+            if(rs.next())
+                num=rs.getInt(1);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            DBUtil.getInstance().closeDBResources();
+        }
+        return num;
     }
 }

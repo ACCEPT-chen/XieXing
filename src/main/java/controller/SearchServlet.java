@@ -22,23 +22,24 @@ public class SearchServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         String param=req.getParameter("param");
         String type=req.getParameter("type");
-        //Integer pageno=Integer.parseInt(req.getParameter("pageno"));
         if("surf".equals(param)){
             //by type
-            List<donation> ShoesListByType=searchService.getDonationByType(type);
-            req.setAttribute("shoes_list",ShoesListByType);
+//            List<donation> ShoesListByType=searchService.getDonationByType(type);
+//            req.setAttribute("shoes_list",ShoesListByType);
 
             //by page
-//            List<donation> ShoesListByType= searchService.getDonationByType_pageNo(type,pageno);
+            Integer pageno=Integer.parseInt(req.getParameter("pageno"));
+            List<donation> ShoesListByType= searchService.getDonationByType_pageNo(type,pageno);
 //            Map<String,Integer> totalNumList=searchService.getDonationNum();
 //            Integer totalNum=totalNumList.get(type);
-//            page shoesPage=new page();
-//            shoesPage.setDonationList(ShoesListByType);
-//            shoesPage.setTotalNum(totalNum);
-//            shoesPage.setPageNo(pageno);
-//
-//            req.setAttribute("shoesPage",shoesPage);
-            //req.setAttribute("type",type);
+            Integer totalNum=searchService.getSingleTypeNum(type);
+            page shoesPage=new page();
+            shoesPage.setDonationList(ShoesListByType);
+            shoesPage.setTotalNum(totalNum);
+            shoesPage.setPageNo(pageno);
+
+            req.setAttribute("shoesPage",shoesPage);
+            req.setAttribute("type",type);
             req.getRequestDispatcher("search.jsp").forward(req,resp);
         }else if("check".equals(param)){
             String donationid=req.getParameter("checkid");

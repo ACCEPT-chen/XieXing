@@ -28,4 +28,8 @@ public class SearchService {
     public String getDonorNameByEmail(String useremail) {
         return searchDao.getDonorNameByEmail(useremail);
     }
+
+    public Integer getSingleTypeNum(String type) {
+        return searchDao.getSingleTypeNum(type);
+    }
 }
