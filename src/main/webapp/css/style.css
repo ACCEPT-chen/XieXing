@@ -45,6 +45,13 @@
 #donationlist .show_info span{
   font-size: 16px;
 }
+.donee-info{
+  margin-bottom: 1rem;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
 body {
   font-family: "Overpass", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: #fff;
@@ -565,7 +572,11 @@ textarea.form-control {
 
 .form-volunteer h2 {
   font-size: 25px;
-  margin-bottom: 20px; }
+  font-weight: bolder;
+  line-height: 80px;
+  width: 160px;
+  margin: 0 auto;
+}
 
 .form-volunteer label {
   color: #fff; }

@@ -84,7 +84,8 @@
                         </div>
 
                         <div class="item_cond">
-                            <c:if test="${donation.cond==1}"><a href="/contactService?id="+${donation.id}>已捐出，查看详情</a></c:if>
+                            <c:if test="${donation.cond==1}"><a href="javascript:jumptodonee(${donation.id});" >已捐出，查看详情</a></c:if>
+<%--                            <c:if test="${donation.cond==1}"><a href="/contactService?id="+${donation.id}>已捐出，查看详情</a></c:if>--%>
                             <c:if test="${donation.cond==0}"><span>未捐出</span></c:if>
                             </div><div class="item_info">
                             <br>
@@ -130,7 +131,12 @@
 <script src="js/jquery.animateNumber.min.js"></script>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
-
+<script type="text/javascript">
+    function jumptodonee(id) {
+        window.location.href="contactServlet?id="+id;
+        // window.open("/contactServlet?id="+id,'_blank');
+    }
+</script>
 </body>
 </html>
 
