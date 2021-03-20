@@ -37,4 +37,24 @@ public class shoppingDao {
     public void resetId(String id,String reid){
         String sql="update shopping set shopping.id=? where shopping.id=?";
     }
+
+    public void addShopping(shopping shopping) {
+        String sql="insert into shopping(id,donationid,donoremail,doneeemail,phone,address,time) values(?,?,?,?,?,?,?)";
+        PreparedStatement pstmt=DBUtil.getInstance().getPreparedStatement(sql);
+        try {
+            pstmt.setString(1,shopping.getId());
+            pstmt.setString(2,shopping.getDonationid());
+            pstmt.setString(3,shopping.getDonoremail());
+            pstmt.setString(4,shopping.getDoneeemail());
+            pstmt.setString(5,shopping.getPhone());
+            pstmt.setString(6,shopping.getAddress());
+            pstmt.setString(7,shopping.getTime());
+
+            pstmt.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            DBUtil.getInstance().closeDBResources();
+        }
+    }
 }

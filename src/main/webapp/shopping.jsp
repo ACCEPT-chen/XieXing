@@ -5,6 +5,13 @@
   Time: 12:05
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+  Created by IntelliJ IDEA.
+  User: lenovo
+  Date: 2021/1/10
+  Time: 12:05
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -14,7 +21,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
+    <%--    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">--%>
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -29,6 +36,8 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <%--    后期添加style--%>
+    <link rel="stylesheet" href="css/style2.css"/>
 
 </head>
 <body>
@@ -76,7 +85,7 @@
                     <div class="donate-info">
                         <h2>运 动 鞋</h2>
                         <span class="time d-block mb-3">Sports Shoes</span>
-                        <p>共有 <span class="text-success">252</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">252</span>双 <br> <a href="searchServlet?param=surf&type=运动鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -87,7 +96,7 @@
                     <div class="donate-info">
                         <h2>凉 鞋</h2>
                         <span class="time d-block mb-3">Sandal</span>
-                        <p>共有 <span class="text-success">150</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">150</span>双 <br> <a href="searchServlet?param=surf&type=凉鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -98,7 +107,7 @@
                     <div class="donate-info">
                         <h2>帆 布 鞋</h2>
                         <span class="time d-block mb-3">Canvas Shoes</span>
-                        <p>共有 <span class="text-success">127</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">127</span>双 <br> <a href="searchServlet?param=surf&type=帆布鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -109,11 +118,10 @@
                     <div class="donate-info">
                         <h2>休 闲 鞋</h2>
                         <span class="time d-block mb-3">Casual Shoes</span>
-                        <p>共有 <span class="text-success">100</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">100</span>双 <br> <a href="searchServlet?param=surf&type=休闲鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
-
 
             <div class="col-md-6 col-lg-3 mb-5">
                 <div class="person-donate text-center">
@@ -121,7 +129,7 @@
                     <div class="donate-info">
                         <h2>拖 鞋</h2>
                         <span class="time d-block mb-3">Slipper</span>
-                        <p>共有 <span class="text-success">252</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">252</span>双 <br> <a href="searchServlet?param=surf&type=拖鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -132,7 +140,7 @@
                     <div class="donate-info">
                         <h2>靴 子</h2>
                         <span class="time d-block mb-3">Boots</span>
-                        <p>共有 <span class="text-success">400</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">400</span>双 <br> <a href="searchServlet?param=surf&type=靴子&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -143,7 +151,7 @@
                     <div class="donate-info">
                         <h2>皮 鞋</h2>
                         <span class="time d-block mb-3">Leather Shoes</span>
-                        <p>共有 <span class="text-success">44</span>双 <br> <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">44</span>双 <br> <a href="searchServlet?param=surf&type=皮鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -154,7 +162,7 @@
                     <div class="donate-info">
                         <h2>雨鞋</h2>
                         <span class="time d-block mb-3">Rainshoes</span>
-                        <p>共有 <span class="text-success">89</span>双 <br>  <a href="#" class="link-underline fundraise-item">详情</a></p>
+                        <p>共有 <span class="text-success">89</span>双 <br>  <a href="searchServlet?param=surf&type=雨鞋&pageno=1" class="link-underline fundraise-item">详情</a></p>
                     </div>
                 </div>
             </div>
@@ -163,51 +171,6 @@
     </div>
 </div> <!-- .section -->
 
-<div class="featured-section overlay-color-2" style="background-image: url(images/ydx1.jpg);">
-
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-6 mb-5 mb-md-0">
-                <img src="images/ydx1.jpg" alt="Image placeholder" class="img-fluid">
-            </div>
-
-            <div class="col-md-6 pl-md-5">
-
-                <div class="form-volunteer">
-
-                    <h2>即刻加入我们吧！</h2>
-                    <form action="#" method="post">
-
-                        <div class="form-group">
-                            <!-- <label for="email">Email</label> -->
-                            <input type="text" class="form-control py-2" id="email" placeholder="注册邮箱">
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="name">Name</label> -->
-
-                            <input type="text" class="form-control py-2" id="name" placeholder="注册密码">
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="v_message">Email</label> -->
-                            <input type="radio" name="usertype" value="捐赠者"/>
-                            <span style="color: white;font:18px bold;">捐赠者</span>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="usertype" value="受捐者"/>
-                            <span style="color: white;font:18px bold;">受捐者</span>
-                            <!-- <input type="text" class="form-control py-2" id="email"> -->
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-white px-5 py-2" value="注 册">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</div> <!-- .featured-donate -->
 
 <footer class="footer">
     <div class="container">
@@ -240,7 +203,7 @@
 
 <script src="js/aos.js"></script>
 <script src="js/jquery.animateNumber.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>--%>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
 
