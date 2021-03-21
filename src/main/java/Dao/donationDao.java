@@ -80,4 +80,14 @@ public class donationDao {
         return isExist;
     }
 
+    public void changcond(String donationid) {
+        String sql="update donation set cond=1 where id=?";
+        PreparedStatement pstmt=DBUtil.getInstance().getPreparedStatement(sql);
+        try {
+            pstmt.setString(1,donationid);
+            pstmt.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

@@ -2192,7 +2192,7 @@ select.form-control:focus::-ms-value {
 }
 
 .form-group {
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 }
 
 .form-text {

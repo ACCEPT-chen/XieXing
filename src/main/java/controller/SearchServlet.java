@@ -28,11 +28,35 @@ public class SearchServlet extends HttpServlet {
 //            req.setAttribute("shoes_list",ShoesListByType);
 
             //by page
+            String sex=req.getParameter("sex");
+            String size=req.getParameter("size");
+            String sexx= (String) req.getAttribute("sex");
+            String sizee= (String) req.getAttribute("size");
+            String typee= (String) req.getAttribute("type");
+            if(type==null){
+                if(typee!=null){
+                    type=typee;
+                }else
+                    type="全部类型";
+            }
+            if(sex==null){
+                if(sexx!=null){
+                    sex=sexx;
+                }else
+                    sex="全部";
+            }
+            if (size==null){
+                if(sizee!=null){
+                    size=sizee;
+                }else
+                    size="全部尺码";
+            }
             Integer pageno=Integer.parseInt(req.getParameter("pageno"));
-            List<donation> ShoesListByType= searchService.getDonationByType_pageNo(type,pageno);
+            List<donation> ShoesListByType= searchService.getDonationByAll_pageNo(type,size,sex,pageno);
+//            List<donation> ShoesListByType= searchService.getDonationByType_pageNo(type,pageno);
 //            Map<String,Integer> totalNumList=searchService.getDonationNum();
 //            Integer totalNum=totalNumList.get(type);
-            Integer totalNum=searchService.getSingleTypeNum(type);
+            Integer totalNum=searchService.getDonationByAll_num(type,size,sex,pageno);
             page shoesPage=new page();
             shoesPage.setDonationList(ShoesListByType);
             shoesPage.setTotalNum(totalNum);
@@ -40,6 +64,8 @@ public class SearchServlet extends HttpServlet {
 
             req.setAttribute("shoesPage",shoesPage);
             req.setAttribute("type",type);
+            req.setAttribute("size",size);
+            req.setAttribute("sex",sex);
             req.getRequestDispatcher("search.jsp").forward(req,resp);
         }else if("check".equals(param)){
             String donationid=req.getParameter("checkid");
@@ -47,6 +73,7 @@ public class SearchServlet extends HttpServlet {
             String donorname=searchService.getDonorNameByEmail(donation.getUseremail());
             req.setAttribute("donation",donation);
             req.setAttribute("donorname",donorname);
+            req.setAttribute("type",type);
             req.getRequestDispatcher("checkout.jsp").forward(req,resp);
         }
     }

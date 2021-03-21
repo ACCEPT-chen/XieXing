@@ -14,6 +14,7 @@
         #my-img{
             width: 800px;
             height: 300px;
+            object-fit: cover;
         }
     </style>
     <title>GiveHope &mdash; Website Template by Colorlib</title>
@@ -90,7 +91,7 @@
                     <h2>受捐助者信息</h2>
                     <form action="#">
 
-                        <div class="form-group">
+                        <div class="donee-info">
                             <span>姓名： ${donee.name}</span><br>
                             <span>邮箱： ${donee.email}  -  手机号： ${shopping.phone}</span><br>
                             <span>地址： ${shopping.address}</span><br>

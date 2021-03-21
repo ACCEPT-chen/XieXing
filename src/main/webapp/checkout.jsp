@@ -33,7 +33,8 @@
 
     <script language="JavaScript" type="text/javascript">
         function checkAll(){
-            var phone = checkPhone();
+            // var phone = checkPhone();
+            var phone = true;
             var address=checkAddress();
             if(phone&&address){
                 alert("确认提交订单?");

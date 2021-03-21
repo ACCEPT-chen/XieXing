@@ -189,8 +189,7 @@
             <div class="col-md-6 pl-md-5">
 
                 <div class="form-volunteer">
-                    <h2></h2>
-                    <h2>即刻加入我们吧！</h2>
+                    <h2 style="font-size: 25px;font-weight: bolder;line-height: 80px;width: 260px;margin: 0 auto;">即刻加入我们吧！</h2>
                     <form action="loginServlet?param=login" method="POST">
                         <table>
                             <div class="form-group">
