@@ -125,7 +125,7 @@
                 <li class="nav-item"><a href="index.jsp" class="nav-link">首 页</a></li>
                 <li class="nav-item active"><a href="donation.jsp" class="nav-link">捐 赠</a></li>
                 <li class="nav-item"><a href="shopping.jsp" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">沟 通</a></li>
+                <li class="nav-item"><a href="listServlet" class="nav-link">沟 通</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link"><c:if test="${username==null}">登录/注册</c:if><c:if test="${username!=null}">${username}</c:if></a></li>
             </ul>
         </div>
@@ -166,7 +166,7 @@
 
                 <div class="form-volunteer">
 
-                    <h2>捐赠您的爱鞋吧！</h2>
+                    <h2 style="font-size: 25px;font-weight: bolder;line-height: 80px; width: 300px;margin: 0 auto;">捐赠您的爱鞋吧！</h2>
                     <form action="donationServlet?param=donation" method="post" enctype="multipart/form-data" onsubmit="return checkAll()">
 
                         <div class="form-group">

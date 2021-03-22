@@ -39,12 +39,11 @@
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">首 页</a></li>
                 <li class="nav-item"><a href="donation.jsp" class="nav-link">捐 赠</a></li>
                 <li class="nav-item"><a href="shopping.jsp" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">沟 通</a></li>
+                <li class="nav-item"><a href="listServlet" class="nav-link">沟 通</a></li>
                 <li class="nav-item">
                     <c:if test="${username==null}"><a href="login.jsp" class="nav-link">登录/注册</a></c:if>
-<%--                    <c:if test="${username!=null}"><a href="/listServlet" class="nav-link">${username}</a></c:if>--%>
-<%--                    <c:if test="${username!=null}"><a href="list.jsp" class="nav-link">${username}</a></c:if>--%>
-                    <c:if test="${username!=null}"><a href="javascript:jumptoList()" class="nav-link">${username}</a></c:if>
+<%--                    <c:if test="${username!=null}"><a href="javascript:jumptoList()" class="nav-link">${username}</a></c:if>--%>
+                    <c:if test="${username!=null}"><a href="javascript:void(0);" class="nav-link">${username}</a></c:if>
 
                 </li>
             </ul>
@@ -267,8 +266,11 @@
 <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>--%>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
-<script src="js/other.js"></script>
-
+<script type="text/javascript">
+    function jumptoList() {
+        window.location.href="listServlet";
+    }
+</script>
 
 
 </body>

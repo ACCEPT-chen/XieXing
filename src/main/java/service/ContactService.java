@@ -3,6 +3,7 @@ package service;
 import Dao.loginDao;
 import Dao.shoppingDao;
 import entity.donee;
+import entity.donor;
 import entity.shopping;
 
 public class ContactService {
@@ -18,5 +19,10 @@ public class ContactService {
     }
     public void resetId(String id,String reid){
         shoppingDao.resetId(id,reid);
+    }
+
+    public void setShoppingCond1(String id){shoppingDao.setShoppingCond1(id);}
+    public donor findEmailDonor(String email){
+        return loginDao.findEmailDonor(email);
     }
 }

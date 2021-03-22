@@ -25,7 +25,8 @@ public class shoppingDao {
                 String phone=rs.getString(5);
                 String address=rs.getString(6);
                 String time=rs.getString(7);
-                shopping=new shopping(id,ddonationid,donoremail,doneeemail,phone,address,time);
+                Integer cond=rs.getInt(8);
+                shopping=new shopping(id,ddonationid,donoremail,doneeemail,phone,address,time,cond);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,6 +50,19 @@ public class shoppingDao {
             pstmt.setString(5,shopping.getPhone());
             pstmt.setString(6,shopping.getAddress());
             pstmt.setString(7,shopping.getTime());
+
+            pstmt.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            DBUtil.getInstance().closeDBResources();
+        }
+    }
+    public void setShoppingCond1(String id){
+        String sql="update shopping set cond=1 where shopping.id=?";
+        PreparedStatement pstmt=DBUtil.getInstance().getPreparedStatement(sql);
+        try {
+            pstmt.setString(1,id);
 
             pstmt.executeUpdate();
         } catch (SQLException throwables) {

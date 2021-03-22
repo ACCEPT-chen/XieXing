@@ -8,6 +8,7 @@ public class shopping {
     private String phone;
     private String address;
     private String time;
+    private Integer cond;
 
     public shopping(String id, String donationid, String donoremail, String doneeemail, String phone, String address, String time) {
         this.id = id;
@@ -17,6 +18,16 @@ public class shopping {
         this.phone = phone;
         this.address = address;
         this.time = time;
+    }
+    public shopping(String id, String donationid, String donoremail, String doneeemail, String phone, String address, String time,Integer cond) {
+        this.id = id;
+        this.donationid = donationid;
+        this.donoremail = donoremail;
+        this.doneeemail = doneeemail;
+        this.phone = phone;
+        this.address = address;
+        this.time = time;
+        this.cond=cond;
     }
 
     public String getId() {
@@ -45,6 +56,14 @@ public class shopping {
 
     public String getTime() {
         return time;
+    }
+
+    public Integer getCond() {
+        return cond;
+    }
+
+    public void setCond(Integer cond) {
+        this.cond = cond;
     }
 
     public void setId(String id) {

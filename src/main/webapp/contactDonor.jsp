@@ -16,6 +16,10 @@
             height: 300px;
             object-fit: cover;
         }
+        .contact-heading{
+            width: 100%;
+            text-align: center;
+        }
     </style>
     <title>GiveHope &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
@@ -99,9 +103,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="section-heading">感谢您的帮助！
-                              您可以通过邮箱地址与我交流！
-                            </label>
+                            <c:choose>
+                                <c:when test="${shopping.cond==0}">
+                                    <label class="contact-heading">
+                                        感谢您的帮助！
+                                        期待收到您的爱心捐赠！
+                                    </label>
+                                    <button class="btn btn-white px-5 py-2" style="margin-left: 160px;" onclick="donateAdmit(${shopping.id});">我已捐出</button>
+                                </c:when>
+                                <c:otherwise>
+                                    <label class="contact-heading">
+                                        感谢您的帮助！
+                                        您可以通过邮箱地址与我交流！
+                                    </label>
+                                    <button class="btn btn-white px-5 py-2" style="margin-left: 160px;" onclick="jumpback();">我已捐出，返回</button>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </form>
                 </div>
@@ -146,6 +163,14 @@
 <script src="js/jquery.animateNumber.min.js"></script>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
-
+<script type="text/javascript">
+    function donateAdmit(id){
+        console.log(id)
+        window.location.href="contactServlet?param=da&id="+id;
+    }
+    function jumpback() {
+        window.location.href="listServlet";
+    }
+</script>
 </body>
 </html>

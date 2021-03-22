@@ -1,5 +1,6 @@
 package controller;
 
+import entity.ddonation;
 import entity.donation;
 import service.DonationService;
 
@@ -22,16 +23,26 @@ public class ListServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        String email = req.getParameter("param");
+        String email=(String)req.getSession().getAttribute("useremail");
         if (donationService.isDonor(email)) {
-            List<donation> donationList = donationService.getDonationList(email);
+            List<donation> donationList = donationService.getDonationListofDonor(email);
             if (donationList.size() != 0) {
                 req.setAttribute("donationList", donationList);
-                req.getRequestDispatcher("list.jsp").forward(req, resp);
+                req.getRequestDispatcher("listDonor.jsp").forward(req, resp);
             } else {
                 req.getRequestDispatcher("donation.jsp").forward(req, resp);
             }
-        } else {
+        } else if(donationService.isDonee(email)){
+            List<donation> donationList = donationService.getDonationListofDonee(0,email);//没有匹配的订单展示鞋子信息
+            List<ddonation> ddonationList=donationService.getDDonationListofDonee(email);//已经匹配的订单还要展现捐献者信息
+            if (donationList.size() != 0||ddonationList.size()!=0) {
+                req.setAttribute("donationList", donationList);
+                req.setAttribute("ddonationList", ddonationList);
+                req.getRequestDispatcher("listDonee.jsp").forward(req, resp);
+            } else {
+                req.getRequestDispatcher("shopping.jsp").forward(req, resp);
+            }
+        }else{
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
     }
