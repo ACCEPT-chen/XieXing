@@ -33,15 +33,11 @@
     <style>
         .block {
             display:flex;
-            flex-direction:row;
             align-items:center;
             width:500px;
             height:30px;
-            border:1px solid #ddd;
-            padding:10px;
-            margin:100px auto 0;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            padding-bottom:50px;
+            margin:10px auto 10px;
         }
         #wordTags {
             display:flex;
@@ -183,8 +179,8 @@
 <div class="featured-section overlay-color-2">
     <div class="col-lg-12">
         <div class="text-center w-100 pt-3">
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=全部类型&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
-                                                     class="classifys active" style="color: black;font-size: medium">全部类型</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=全部类型&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
+                                                     class="classifys active">全部类型</a></div>
             <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=运动鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
                                                     class="classifys " onclick="changeKey(1,'运动鞋')">运动鞋</a></div>
 <%--            --%>
@@ -207,7 +203,7 @@
     <div class="col-lg-12">
         <div class="text-center w-100 pt-3">
             <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=全部尺码&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
-                                                     class="classifys active" style="color: black;font-size: medium">全部尺码</a></div>
+                                                     class="classifys active">全部尺码</a></div>
             <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=36&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
                                                     class="classifys "onclick="changeKey(2,'36')">36</a></div>
             <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=37&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
@@ -271,7 +267,7 @@
                    value="${requestScope.shoesPage.pageNo}" onblur="jumpPage()">
             <input type="Button" id="next" class="btn btn-white px-5 py-2" value="下一页" onclick="nextPage()">
             <input type="Button" id="last" class="btn btn-white px-5 py-2" value="尾页" onclick="lastPage()">
-            <h5>总共${requestScope.shoesPage.totalPages}页</h5>
+            <p>总共${requestScope.shoesPage.totalPages}页</p>
         </div>
     </div>
 </div>

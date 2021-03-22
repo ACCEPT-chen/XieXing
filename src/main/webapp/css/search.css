@@ -59,17 +59,12 @@ input::-moz-placeholder { color: #bfbfbf; }
 
 /* 删除选中标签 */
 .tag-checked-name {
-    display:inline-block;
-    position:relative;
     height: 24px;
-    border-radius: 1px;
-    color: #dba439;
-    font-size:12px;
+    color: #f7ca44;
+    font-size:14px;
     line-height:24px;
     padding:0 20px 0 8px;
-    background-color: #f7fdff;
-    border: solid 1px #ef810b;
-    white-space: nowrap;
+    background-color: #fff;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right:5px;

@@ -91,7 +91,7 @@
                                 <c:if test="${item.donation.cond==1}">已发出</c:if>
                                 <c:if test="${item.donation.cond==0}">等待发出</c:if>
                         </span><br>
-                            <span>捐助者姓名： ${item.donor.name}</span>
+                            <span>捐助者姓名： ${item.donor.name}</span><br>
                             <span>捐助者邮箱： ${item.donor.email}</span>
                             <div class="show_item">
                                 <a class="img-hover" href=${item.donor.photo}>
