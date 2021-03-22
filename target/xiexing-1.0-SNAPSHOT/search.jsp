@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <title>GiveHope &mdash; Website Template by Colorlib</title>
+    <title>携 行—慈善捐鞋网站</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -31,28 +31,29 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/search.css">
     <style>
+
         .block {
-            display:flex;
-            align-items:center;
-            width:500px;
-            height:30px;
-            padding-bottom:50px;
-            margin:10px auto 10px;
+            display: flex;
+            align-items: center;
+            width: 500px;
+            height: 30px;
+            padding-bottom: 50px;
+            margin: 10px auto 10px;
         }
+
         #wordTags {
-            display:flex;
-            flex-wrap:nowrap;
+            display: flex;
+            flex-wrap: nowrap;
         }
-        /*myinput{*/
-        /*    width:100%;*/
-        /*    height:20px;*/
-        /*    border:none;*/
-        /*}*/
     </style>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
     <script type="text/javascript" src="js/PageJS/aspect.js"></script>
     <script type="text/javascript" src="js/PageJS/keyWord.js"></script>
     <script type="text/javascript">
+        function load() {
+            window.location.hash = "1100px";
+            // window.location.hash = "#bbb";
+        }
 
         $(function () {
             var keyWord = $("#wordInput").keyWord({
@@ -94,7 +95,7 @@
 
         function firstPage() {
             window.location.href = 'searchServlet?param=surf&type=${requestScope.type}&size=${requestScope.size}&sex=${requestScope.sex}&pageno=${requestScope.shoesPage.firstPage}';
-            alert("首页");
+            // alert("首页");
             return false;
         }
 
@@ -111,19 +112,21 @@
             // alert("跳页");
             return false;
         }
-        function gosearch(str1,str2,str3){
-            window.location.href = "searchServlet?param=surf&type=+"+str1+"&size="+str2+"&sex="+str3+"&pageno="+curPage;
+
+        function gosearch(str1, str2, str3) {
+            window.location.href = "searchServlet?param=surf&type=+" + str1 + "&size=" + str2 + "&sex=" + str3 + "&pageno=" + curPage;
         }
-        function changeKey(index,str){
-            var str1='${requestScope.type}';
-            var str2='${requestScope.size}';
-            var str3='${requestScope.sex}';
-            if(index==1){
-                str1=str;
-            }else if(index==2){
-                str2=str;
-            }else if (index==3){
-                str3=str;
+
+        function changeKey(index, str) {
+            var str1 = '${requestScope.type}';
+            var str2 = '${requestScope.size}';
+            var str3 = '${requestScope.sex}';
+            if (index == 1) {
+                str1 = str;
+            } else if (index == 2) {
+                str2 = str;
+            } else if (index == 3) {
+                str3 = str;
             }
             var keyWord = $("#wordInput").keyWord({
                 panel: '#wordTags',
@@ -131,14 +134,15 @@
                 max: 3,
                 tips: '最多只能输入3项'
             });
-            keyWord.init(str1+','+str2+','+str3);
+            keyWord.init(str1 + ',' + str2 + ',' + str3);
 
-            gosearch(str1,str2,str3);
+            gosearch(str1, str2, str3);
         }
+
     </script>
 
 </head>
-<body>
+<body onload="load()">
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container"><a class="navbar-brand" href="index.jsp">携&nbsp; 行</a>
@@ -149,12 +153,14 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.jsp" class="nav-link">首 页</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">捐 赠</a></li>
-                <li class="nav-item active"><a href="shopping.jsp" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">沟 通</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link"><c:if
-                        test="${username==null}">登录/注册</c:if><c:if test="${username!=null}">${username}</c:if></a></li>
+                <li class="nav-item active"><a href="index.jsp" class="nav-link">首 页</a></li>
+                <li class="nav-item"><a href="donation.jsp" class="nav-link">捐 赠</a></li>
+                <li class="nav-item"><a href="shopping.jsp" class="nav-link">购 物</a></li>
+                <li class="nav-item">
+                    <c:if test="${username==null}"><a href="login.jsp" class="nav-link">登录/注册</a></c:if>
+                    <c:if test="${username!=null}"><a href="listServlet" class="nav-link">${username}</a></c:if>
+                </li>
+                <li class="nav-item"><a href="listServlet" class="nav-link">退出</a></li>
             </ul>
         </div>
     </div>
@@ -179,60 +185,70 @@
 <div class="featured-section overlay-color-2">
     <div class="col-lg-12">
         <div class="text-center w-100 pt-3">
-            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=全部类型&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
-                                                     class="classifys active">全部类型</a></div>
-            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=运动鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&type=全部类型&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
+                                                    class="classifys active">全部类型</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&type=运动鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
                                                     class="classifys " onclick="changeKey(1,'运动鞋')">运动鞋</a></div>
-<%--            --%>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=凉鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
-                                                     class="classifys " onclick="changeKey(1,'凉鞋')">凉鞋</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=帆布鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
-                                           class="classifys " onclick="changeKey(1,'帆布鞋')">帆布鞋</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=休闲鞋&pageno=1"
-                                           class="classifys " onclick="changeKey(1,'休闲鞋')">休闲鞋</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=拖鞋&pageno=1"
-                                                     class="classifys " onclick="changeKey(1,'拖鞋')">拖鞋</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=靴子&pageno=1"
-                                                     class="classifys " onclick="changeKey(1,'靴子')">靴子</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=皮鞋&pageno=1"
-                                                     class="classifys " onclick="changeKey(1,'皮鞋')">皮鞋</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=雨鞋&pageno=1"
-                                                     class="classifys " onclick="changeKey(1,'雨鞋')">雨鞋</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&type=凉鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'凉鞋')">凉鞋</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&type=帆布鞋&size=${requestScope.size}&sex=${requestScope.sex}&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'帆布鞋')">帆布鞋</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=休闲鞋&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'休闲鞋')">休闲鞋</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=拖鞋&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'拖鞋')">拖鞋</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=靴子&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'靴子')">靴子</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=皮鞋&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'皮鞋')">皮鞋</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&type=雨鞋&pageno=1"
+                                                    class="classifys " onclick="changeKey(1,'雨鞋')">雨鞋</a></div>
         </div>
     </div>
+    <div id="bbb" hidden></div>
     <div class="col-lg-12">
         <div class="text-center w-100 pt-3">
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=全部尺码&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
-                                                     class="classifys active">全部尺码</a></div>
-            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=36&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
-                                                    class="classifys "onclick="changeKey(2,'36')">36</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=37&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
-                                                     class="classifys " onclick="changeKey(2,'37')">37</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&size=全部尺码&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
+                                                    class="classifys active">全部尺码</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&size=36&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
+                                                    class="classifys " onclick="changeKey(2,'36')">36</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&size=37&type=${requestScope.type}&sex=${requestScope.sex}&pageno=1"
+                                                    class="classifys " onclick="changeKey(2,'37')">37</a></div>
             <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=38&pageno=1"
                                                     class="classifys " onclick="changeKey(2,'38')">38</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=39&pageno=1"
-                                                     class="classifys " onclick="changeKey(2,'39')">39</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=39&pageno=1"
+                                                    class="classifys " onclick="changeKey(2,'39')">39</a></div>
             <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&size=40&pageno=1"
                                                     class="classifys " onclick="changeKey(2,'40')">40</a></div>
         </div>
     </div>
     <div class="col-lg-12">
         <div class="text-center w-100 pt-3">
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&sex=全部&type=${requestScope.type}&size=${requestScope.size}&pageno=1"
-                                                     class="classifys active" style="color: black;font-size: medium">全部</a></div>
-            <div class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&sex=男&type=${requestScope.type}&size=${requestScope.size}&pageno=1"
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&sex=全部&type=${requestScope.type}&size=${requestScope.size}&pageno=1"
+                                                    class="classifys active">全部</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&sex=男&type=${requestScope.type}&size=${requestScope.size}&pageno=1"
                                                     class="classifys " onclick="changeKey(3,'男')">男</a></div>
-            <div  class="btn btn-white px-5 py-2"><a rel="nofollow" href="searchServlet?param=surf&sex=女&type=${requestScope.type}&size=${requestScope.size}&pageno=1"
-                                                     class="classifys " onclick="changeKey(3,'女')">女</a></div>
+            <div class="btn btn-white px-5 py-2"><a rel="nofollow"
+                                                    href="searchServlet?param=surf&sex=女&type=${requestScope.type}&size=${requestScope.size}&pageno=1"
+                                                    class="classifys " onclick="changeKey(3,'女')">女</a></div>
         </div>
     </div>
     <div class="col-lg-12">
         <div class="text-center w-100 pt-3">
             <div class="block">
                 <div id="wordTags"></div>
-<%--                <input  id="wordInput" type="text" name="" placeholder="请输入关键词以空格结尾">--%>
-                <input  id="wordHiddenInput" type="hidden" name="">
-<%--                <input type="Button"  class="btn btn-white px-5 py-2" value="搜索" onclick="gosearch()">--%>
+                <%--                <input  id="wordInput" type="text" name="" placeholder="请输入关键词以空格结尾">--%>
+                <input id="wordHiddenInput" type="hidden" name="">
+                <%--                <input type="Button"  class="btn btn-white px-5 py-2" value="搜索" onclick="gosearch()">--%>
             </div>
         </div>
     </div>
@@ -263,26 +279,20 @@
             <%--                        <button class="site-btn sb-line sb-dark">LOAD MORE</button>--%>
             <input type="Button" id="first" class="btn btn-white px-5 py-2" value="首页" onclick="firstPage()">
             <input type="Button" id="pre" class="btn btn-white px-5 py-2" value="上一页" onclick="prePage()">
-            <input type="text" id="pageno" name="pageno" class="btn btn-white px-5 py-2"
+            <input type="text" id="pageno" name="pageno" class="btn btn-white px-5 py-2" style="width: 180px;"
                    value="${requestScope.shoesPage.pageNo}" onblur="jumpPage()">
             <input type="Button" id="next" class="btn btn-white px-5 py-2" value="下一页" onclick="nextPage()">
             <input type="Button" id="last" class="btn btn-white px-5 py-2" value="尾页" onclick="lastPage()">
-            <p>总共${requestScope.shoesPage.totalPages}页</p>
+            <p style="width: 180px;margin: 0 auto;padding-top: 20px;font-size: 16px;color: #000;">
+                总共${requestScope.shoesPage.totalPages}页</p>
         </div>
     </div>
 </div>
 
 
 <footer class="footer">
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-md-12 text-center">
-                <p>
-                    上海大学“携行”团队 | 联系我们 xxxxxxxxxxx <i class="ion-ios-heart text-danger" aria-hidden="true"></i>
-                </p>
-
-            </div>
-        </div>
+    <div class="col-md-12 text-center">
+        <p>上海大学“携行”团队 | 联系我们 xiexing2021@163.com</p>
     </div>
 </footer>
 <!-- loader -->

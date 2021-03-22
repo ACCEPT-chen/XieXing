@@ -5,19 +5,12 @@
   Time: 12:05
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: lenovo
-  Date: 2021/1/10
-  Time: 12:05
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <title>GiveHope &mdash; Website Template by Colorlib</title>
+    <title>携 行—慈善捐鞋网站</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -41,20 +34,23 @@
 
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container"><a class="navbar-brand" href="index.jsp">携&nbsp; 行</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.jsp" class="nav-link">首 页</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">捐 赠</a></li>
-                <li class="nav-item active"><a href="shopping.jsp" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">沟 通</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link"><c:if test="${username==null}">登录/注册</c:if><c:if test="${username!=null}">${username}</c:if></a></li>
+                <li class="nav-item active"><a href="index.jsp" class="nav-link">首 页</a></li>
+                <li class="nav-item"><a href="donation.jsp" class="nav-link">捐 赠</a></li>
+                <li class="nav-item"><a href="shopping.jsp" class="nav-link">购 物</a></li>
+                <li class="nav-item">
+                    <c:if test="${username==null}"><a href="login.jsp" class="nav-link">登录/注册</a></c:if>
+                    <c:if test="${username!=null}"><a href="listServlet" class="nav-link">${username}</a></c:if>
+                </li>
+                <li class="nav-item"><a href="listServlet" class="nav-link">退出</a></li>
             </ul>
         </div>
     </div>
@@ -171,17 +167,9 @@
     </div>
 </div> <!-- .section -->
 
-
 <footer class="footer">
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-md-12 text-center">
-                <p>
-                    上海大学“携行”团队 | 联系我们 xxxxxxxxxxx <i class="ion-ios-heart text-danger" aria-hidden="true"></i>
-                </p>
-
-            </div>
-        </div>
+    <div class="col-md-12 text-center">
+        <p>上海大学“携行”团队 | 联系我们 xiexing2021@163.com</p>
     </div>
 </footer>
 <!-- loader -->
