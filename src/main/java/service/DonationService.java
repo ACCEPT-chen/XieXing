@@ -33,7 +33,7 @@ public class DonationService {
         List<donation> donationList=donationDao.getDonationListofDonee(1,email);
         List<ddonation> ddonationList=new ArrayList<ddonation>();
         for (int i=0;i<donationList.size();i++){
-            donor d=loginDao.findEmailDonor(email);
+            donor d=(donor)loginDao.findEmailDonor(donationList.get(i).getUseremail());
             ddonation dd=new ddonation(donationList.get(i),d);
             ddonationList.add(dd);
         }

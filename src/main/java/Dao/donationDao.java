@@ -64,13 +64,13 @@ public class donationDao {
     }
     public boolean isDonor(String email){
         boolean isExist=false;
-        String sql="select count(*)=1 from donor where email=?";
+        String sql="select count(*)=1 tag from donor where email=?";
         PreparedStatement pstmt = DBUtil.getInstance().getPreparedStatement(sql);
         try {
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){
-                isExist=true;
+                isExist=rs.getBoolean("tag");
             }
             rs.close();
         } catch (SQLException e) {
@@ -94,13 +94,13 @@ public class donationDao {
 
     public boolean isDonee(String email){
         boolean isExist=false;
-        String sql="select count(*)=1 from donee where email=?";
+        String sql="select count(*)=1 tag from donee where email=?";
         PreparedStatement pstmt = DBUtil.getInstance().getPreparedStatement(sql);
         try {
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){
-                isExist=true;
+                isExist=rs.getBoolean("tag");
             }
             rs.close();
         } catch (SQLException e) {

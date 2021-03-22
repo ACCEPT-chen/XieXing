@@ -47,8 +47,8 @@
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">首 页</a></li>
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">捐 赠</a></li>
                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link">购 物</a></li>
-                <li class="nav-item"><a href="contactDonor.jsp" class="nav-link">沟 通</a></li>
-                <li class="nav-item"><a href="listDonor.jsp" class="nav-link">${username}</a></li>
+                <li class="nav-item"><a href="listServlet" class="nav-link">沟 通</a></li>
+                <li class="nav-item"><a href="javascript:void(0);" class="nav-link">${username}</a></li>
             </ul>
         </div>
     </div>
@@ -73,6 +73,35 @@
     <div class="container">
         <div class="row">
             <ul id="donationlist">
+                <c:forEach items="${requestScope.ddonationList}" var="item">
+                    <li class="clearfix">
+                        <p>鞋 昵称： <strong>${item.donation.name}</strong></p>
+                        <div class="show_item">
+                            <a class="img-hover" href=${item.donation.photo}>
+                                <span class="icon icon-search"></span>
+                                <img class="img-fluid" src=${item.donation.photo}>
+                            </a>
+                        </div>
+                        <div class="item_info">
+                            <br>
+                            <span>尺码： ${item.donation.size}</span><br>
+                            <span>类型： ${item.donation.type}</span><br>
+                            <span>适用性别： ${item.donation.sex}</span><br>
+                            <span>状态：
+                                <c:if test="${item.donation.cond==1}">已发出</c:if>
+                                <c:if test="${item.donation.cond==0}">等待发出</c:if>
+                        </span><br>
+                            <span>捐助者姓名： ${item.donor.name}</span>
+                            <span>捐助者邮箱： ${item.donor.email}</span>
+                            <div class="show_item">
+                                <a class="img-hover" href=${item.donor.photo}>
+                                    <span class="icon icon-search"></span>
+                                    <img class="img-fluid" src=${item.donor.photo}>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
                 <c:forEach items="${requestScope.donationList}" var="donation">
                     <li class="clearfix">
                         <p>鞋 昵称： <strong>${donation.name}</strong></p>
@@ -84,27 +113,14 @@
                         </div>
                         <div class="item_info">
                             <br>
-                            <span>尺码： ${donation.size}</span> - <span>类型： ${donation.type}</span> -
-                            <span>${donation.sex}</span>
-                        </div>
-                        <div class="item_cond">
-                            <c:if test="${donation.cond==1}">
-                                <span>已匹配</span>
-                                <div class="donee-info">
-                                    <span>捐助者姓名： ${donor.name}</span>
-                                    <span>捐助者邮箱： ${donor.email}</span>
-                                    <div class="show_item">
-                                        <a class="img-hover" href=${donor.photo}>
-                                            <span class="icon icon-search"></span>
-                                            <img class="img-fluid" src=${donor.photo}>
-                                        </a>
-                                    </div>
-                                </div>
-                            </c:if>
-                            <c:if test="${donation.cond==0}"><span>等待确认</span></c:if>
+                            <span>尺码： ${donation.size}</span><br>
+                            <span>类型： ${donation.type}</span><br>
+                            <span>适用性别： ${donation.sex}</span><br>
+                            <span>状态： 等待确认</span>
                         </div>
                     </li>
                 </c:forEach>
+
             </ul>
 
         </div>

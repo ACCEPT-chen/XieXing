@@ -45,8 +45,9 @@ public class DonationServlet extends HttpServlet {
             String useremail=req.getSession().getAttribute("useremail").toString();
             // String Path="/photos";
             File file =su.getFiles().getFile(0);
-            String photoName = new StringBuilder(new String(name).hashCode()).append(System.currentTimeMillis()).toString();
-            String id= new StringBuilder(new String(useremail).hashCode()).append(System.currentTimeMillis()).toString();
+            String photoName = new StringBuilder(new String("1").hashCode()).append(System.currentTimeMillis()).toString();
+//            String id= new StringBuilder(new String(useremail).hashCode()).append(System.currentTimeMillis()).toString();
+            String id=photoName;
             try {
                 file.saveAs(photosPath+"\\"+photoName+".jpg");
             } catch (SmartUploadException e) {
