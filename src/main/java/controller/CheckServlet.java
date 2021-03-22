@@ -16,9 +16,9 @@ public class CheckServlet extends HttpServlet {
     CheckService checkService=new CheckService();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("utf-8");
         String param=req.getParameter("param");
-        String type=req.getParameter("type");
+        String type=req.getParameter("shoes_type");
         if("add".equals(param)){
             String donationid=req.getParameter("donationid");
             String donoremail=req.getParameter("donoremail");
@@ -30,7 +30,7 @@ public class CheckServlet extends HttpServlet {
             shopping shopping=new shopping(id,donationid,donoremail,doneeemail,phone,address,time);
             checkService.addShopping(shopping);
             checkService.changecond(donationid);
-            resp.sendRedirect("searchServlet?param=surf&type="+type+"&pageno=1");
+            req.getRequestDispatcher("searchServlet?param=surf&type="+type+"&pageno=1").forward(req,resp);
         }
     }
 }

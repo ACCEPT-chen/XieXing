@@ -50,7 +50,7 @@
             var spanNode = document.getElementById("confirmphone");
             var content = inputNode.value;
             //手机号的规则
-            var reg = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$/i;
+            var reg = /^1[345789]\d{9}$/;
             if(inputNode.value.length==0){
                 spanNode.innerHTML = "不能为空哦！".fontcolor("red");
                 return false;
